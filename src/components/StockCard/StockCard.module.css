@@ -1,0 +1,171 @@
+.stockCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  color: #333;
+}
+
+.stockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.companyInfo h2.symbol {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0 0 0.25rem 0;
+}
+
+.companyName {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.priceInfo {
+  text-align: right;
+}
+
+.currentPrice {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+}
+
+.priceChange {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.priceChange.positive {
+  color: #16a34a;
+}
+
+.priceChange.negative {
+  color: #dc2626;
+}
+
+.changeAmount {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.changePercent {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.stockDetails {
+  margin-bottom: 1.5rem;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #e2e8f0;
+}
+
+.detailItem .label {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.detailItem .value {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.lastUpdated {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .stockCard {
+    padding: 1.5rem;
+  }
+
+  .stockHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .priceInfo {
+    text-align: center;
+  }
+
+  .companyInfo h2.symbol {
+    font-size: 1.75rem;
+  }
+
+  .currentPrice {
+    font-size: 1.8rem;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .detailItem {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stockCard {
+    padding: 1rem;
+  }
+
+  .companyInfo h2.symbol {
+    font-size: 1.5rem;
+  }
+
+  .currentPrice {
+    font-size: 1.6rem;
+  }
+
+  .detailItem {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .detailItem .label {
+    font-size: 0.8rem;
+  }
+
+  .detailItem .value {
+    font-size: 0.9rem;
+  }
+}

@@ -27,17 +27,20 @@ A modern, mobile-responsive stock dashboard built with React and TypeScript. Cur
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <repository-url>
    cd stock-dashboard
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -89,6 +92,7 @@ The dashboard currently displays dummy data for NVIDIA Corporation (NVDA) includ
 ## Mobile Responsiveness
 
 The dashboard is fully responsive with breakpoints at:
+
 - **Desktop**: > 768px
 - **Tablet**: 768px and below
 - **Mobile**: 480px and below

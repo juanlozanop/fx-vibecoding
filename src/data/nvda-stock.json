@@ -1,14 +1,14 @@
 {
   "symbol": "NVDA",
   "companyName": "NVIDIA Corporation",
-  "currentPrice": 875.30,
+  "currentPrice": 875.3,
   "change": 23.45,
   "changePercent": 2.75,
   "volume": 45234567,
   "marketCap": "$2.16T",
   "peRatio": 65.8,
   "dayHigh": 881.15,
-  "dayLow": 852.40,
+  "dayLow": 852.4,
   "weekHigh52": 950.02,
   "weekLow52": 365.25,
   "lastUpdated": "2026-03-28T15:30:00Z"
