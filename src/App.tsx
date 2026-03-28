@@ -18,6 +18,83 @@ interface StockData {
   lastUpdated: string;
 }
 
+interface BarChartProps {
+  stockData: StockData;
+}
+
+const BarChart: React.FC<BarChartProps> = ({ stockData }) => {
+  const chartData = [
+    {
+      label: 'Current Price',
+      value: stockData.currentPrice,
+      color: '#3b82f6',
+      isHighlight: true,
+    },
+    {
+      label: 'Day High',
+      value: stockData.dayHigh,
+      color: '#10b981',
+      isHighlight: false,
+    },
+    {
+      label: 'Day Low',
+      value: stockData.dayLow,
+      color: '#f59e0b',
+      isHighlight: false,
+    },
+    {
+      label: '52W High',
+      value: stockData.weekHigh52,
+      color: '#059669',
+      isHighlight: false,
+    },
+    {
+      label: '52W Low',
+      value: stockData.weekLow52,
+      color: '#dc2626',
+      isHighlight: false,
+    },
+  ];
+
+  const maxValue = Math.max(...chartData.map(item => item.value));
+  const minValue = Math.min(...chartData.map(item => item.value));
+  const range = maxValue - minValue;
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(value);
+  };
+
+  return (
+    <div className="bar-chart">
+      <h3 className="chart-title">Price Analysis</h3>
+      <div className="chart-container">
+        {chartData.map((item, index) => {
+          const heightPercentage = ((item.value - minValue) / range) * 100;
+          const adjustedHeight = Math.max(30, heightPercentage); // Minimum 30% height for visibility
+          
+          return (
+            <div key={index} className="bar-item">
+              <div 
+                className={`bar ${item.isHighlight ? 'highlight' : ''}`}
+                style={{ 
+                  height: `${adjustedHeight}%`,
+                  backgroundColor: item.color,
+                }}
+              >
+                <div className="bar-value">{formatCurrency(item.value)}</div>
+              </div>
+              <div className="bar-label">{item.label}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [stockData, setStockData] = useState<StockData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -115,6 +192,10 @@ const App: React.FC = () => {
           <div className="last-updated">
             Last updated: {new Date(stockData.lastUpdated).toLocaleString()}
           </div>
+        </div>
+        
+        <div className="chart-section">
+          <BarChart stockData={stockData} />
         </div>
       </main>
     </div>
